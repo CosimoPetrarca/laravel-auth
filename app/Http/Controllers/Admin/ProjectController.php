@@ -39,14 +39,13 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $request->validated();
-        $data = $request->all();
-
+        $data = $request->validated();
+     
         $new_project = new Project();
         $new_project->fill($data);
-        $new_project->slug = Str::slug($new_project->project_name, '-');
+        $new_project->slug = Str::slug($data['title']);
         $new_project->save();
-        return to_route('admin.projects.show', $new_project->id)->with('message', 'Progetto creato correttamente');
+        return to_route('admin.projects.index')->with('message', 'Progetto creato correttamente');
     }
 
     /**
@@ -80,14 +79,13 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $request->validated();
+        $data = $request->validated();
 
-        $data = $request->all();
         $project->update($data);
-        $project->slug = Str::slug($project->project_name, '-');
+        $project->slug = Str::slug($data['title']);
         $project->save();
 
-        return to_route('admin.projects.show', $project->id)->with('message', 'Modifica avvenuta con successo');
+        return to_route('admin.projects.index')->with('message', 'Modifica avvenuta con successo');
     }
 
     /**
