@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    @if (session('message'))
+    <h5 class="text-warning">{{ session('message') }}</h5>
+    @endif
     <h1 class="fs-4 text-secondary my-4 text-center"> Dettaglio Progetto: {{ $project->title }}</h1>
     <hr>
     <h3><strong>Nome Progetto:</strong> {{ $project->title }}</h3>
