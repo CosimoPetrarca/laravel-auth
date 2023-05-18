@@ -53,9 +53,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ Route('admin.projects.create') }}">{{ __('Create New Project') }}</a>
                         </li>
-
                         @endauth
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
