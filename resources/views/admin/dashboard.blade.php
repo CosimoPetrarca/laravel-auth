@@ -14,7 +14,9 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <h5 class="text-center p-4">Benvenuto fra noi {{ Auth::user()->name }}!</h5>
+                    <div class="tenor-gif-embed" data-postid="5096213" data-share-method="host" data-aspect-ratio="1.77515" data-width="100%"><a href="https://tenor.com/view/applause-crowd-cheer-clap-hall-gif-5096213">Applause Crowd GIF</a>from <a href="https://tenor.com/search/applause-gifs">Applause GIFs</a></div>
+                    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
                 </div>
             </div>
         </div>
