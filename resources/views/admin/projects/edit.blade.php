@@ -15,7 +15,7 @@
         <h2 class="fs-4 text-secondary my-4">Modifica Progetto</h2>
     </div>
 
-    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST">
+    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -25,6 +25,10 @@
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione Progetto</label>
             <input type="text" class="form-control" id="description" name="description" value="{{ old('description', $project->description) }}">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input class="form-control" type="file" id="image" name="image">
         </div>
         <div class="mb-3">
             <label class="form-label" for="start_date">Data inizio</label>
