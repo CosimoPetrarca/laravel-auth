@@ -84,10 +84,19 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
+        $data = $request->all();
 
-        $project->update($data);
         $project->slug = Str::slug($data['title']);
-        $project->save();
+        if (isset($data['image'])) {
+
+            if($project->image){
+                Storage::delete($project->image);
+            }
+
+            $project->image = Storage::put('uploads', $data['image']);
+        }
+        
+        $project->update($data);
 
         return to_route('admin.projects.index')->with('message', 'Modifica avvenuta con successo');
     }

@@ -15,7 +15,7 @@
         <h2 class="fs-4 text-secondary my-4">Modifica Progetto</h2>
     </div>
 
-    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
