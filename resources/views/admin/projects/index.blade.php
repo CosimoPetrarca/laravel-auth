@@ -7,7 +7,11 @@
         {{ session('message') }}
     </div>
     @endif
+    <div class="d-flex justify-content-between align-items-center">
     <h2 class="fs-4 text-secondary my-4"> I miei Progetti</h2>
+    <a href="{{ Route('admin.projects.create') }}" class="btn btn-primary btn-sm">Crea Nuovo Progetto</a>
+
+    </div>
     <table class="table">
         <thead>
             <tr>
